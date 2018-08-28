@@ -18,7 +18,6 @@ fs.readdir("./commands/", (err, files) => {
   jsfile.forEach((f, i) =>{
   let props = require(`./commands/${f}`);
   console.log(`${f} Iniciado!`);
-  bot.commands.set(props.help.name, props);
   });
 
 });
@@ -65,23 +64,6 @@ if(commandfile) commandfile.run(bot,message,args);
 
 
 
-//INFORMACION SERVIDOR -INFOSERVER
-
-if(cmd === `${prefix}infoserver`){
-  let sicon = message.guild.iconURL;
-  let serverembed = new Discord.RichEmbed()
-  .setDescription("Información Server")
-  .setColor("#00d0ff")
-  .setThumbnail(sicon)
-  .addField("Nombre", message.guild.name)
-  .addField("Creado En", message.guild.createdAt)
-  .addField("Te uniste", message.member.joinedAt)
-  .addField("Miembros en total", message.guild.memberCount)
-
-
-
-  return message.channel.send(serverembed);
-}
 
 
 
